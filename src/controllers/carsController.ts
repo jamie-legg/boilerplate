@@ -1,10 +1,12 @@
 import boom from 'boom';
 import Car from '../models/Car';
-import { Document } from 'mongoose';
-import { ServerResponse } from 'http';
-import { FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyRequest, FastifyReply, RouteHandlerMethod } from 'fastify';
 
-export const getCars = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>): Promise<Document[]> => {
+interface GenericRequest {
+	id?: any
+}
+
+export const getCars: RouteHandlerMethod = async (req: FastifyRequest, res: FastifyReply): Promise<any> => {
 	try {
 		const cars = await Car.find();
 		return cars;
@@ -13,9 +15,9 @@ export const getCars = async (req: FastifyRequest, reply: FastifyReply<ServerRes
 	}
 };
 
-export const getSingleCar = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const getSingleCar: RouteHandlerMethod = async (req: FastifyRequest, res: FastifyReply): Promise<any> => {
 	try {
-		const id = req.params.id;
+		const id = (req.params as GenericRequest).id
 		const car = await Car.findById(id);
 		return car;
 	} catch (err) {
@@ -23,7 +25,7 @@ export const getSingleCar = async (req: FastifyRequest, reply: FastifyReply<Serv
 	}
 };
 
-export const addCar = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const addCar: RouteHandlerMethod = async (req: FastifyRequest, res: FastifyReply): Promise<any> => {
 	try {
 		const car = new Car(req.body);
 		return await car.save();
@@ -32,10 +34,10 @@ export const addCar = async (req: FastifyRequest, reply: FastifyReply<ServerResp
 	}
 };
 
-export const updateCar = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const updateCar: RouteHandlerMethod = async (req: FastifyRequest, res: FastifyReply): Promise<any> => {
 	try {
-		const id = req.params.id;
-		const car = req.body;
+		const id = (req.params as GenericRequest).id;
+		const car = req.body as any;
 		const { ...updateData } = car;
 		const update = await Car.findByIdAndUpdate(id, updateData, { new: true });
 		return update;
@@ -44,9 +46,9 @@ export const updateCar = async (req: FastifyRequest, reply: FastifyReply<ServerR
 	}
 };
 
-export const deleteCar = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const deleteCar: RouteHandlerMethod = async (req: FastifyRequest, res: FastifyReply): Promise<any> => {
 	try {
-		const id = req.params.id;
+		const id = (req.params as GenericRequest).id;
 		const car = await Car.findByIdAndRemove(id);
 		return car;
 	} catch (err) {

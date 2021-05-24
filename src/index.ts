@@ -4,10 +4,18 @@ import routes from './routes';
 import { Options } from './config/swagger';
 import { config } from './config';
 import swagger from 'fastify-swagger';
+import nextAdapter from 'fastify-nextjs'
 const env = process.env.NODE_ENV;
 
 // Configure App
 const app = fastify.default({ logger: true });
+console.log(app.next)
+
+app.register(nextAdapter)
+  .after(() => {
+    // app.next('/')
+  })
+
 app.register(swagger, Options);
 
 routes.forEach(route => {

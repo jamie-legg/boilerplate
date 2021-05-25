@@ -1,44 +1,54 @@
-export const AddCarSchema = {
-	description: 'Create a new car',
-	tags: ['cars'],
-	summary: 'Creates new car with given values',
+
+export interface IWorld {
+	_id: string
+	name: String,
+	title: String,
+	color: String,
+	streamCount: Number,
+}
+
+const worldSuccessResponse = {
+	200: {
+		description: 'Successful response',
+		type: 'object',
+		properties: {
+			_id: { type: 'string' },
+			name: { type: 'string' },
+			title: { type: 'string' },
+			color: { type: 'string' },
+			streamCount: { type: 'number' },
+			__v: { type: 'number' },
+		},
+	},
+}
+
+export const AddWorldSchema = {
+	description: 'Create a new world',
+	tags: ['worlds'],
+	summary: 'Creates new world with given values',
 	body: {
 		type: 'object',
 		properties: {
 			title: { type: 'string' },
-			brand: { type: 'string' },
-			price: { type: 'string' },
-			age: { type: 'number' },
+			name: { type: 'string' },
+			color: { type: 'string' },
+			streamCount: { type: 'number' },
 			services: { type: 'object' },
 		},
 	},
-	response: {
-		200: {
-			description: 'Successful response',
-			type: 'object',
-			properties: {
-				_id: { type: 'string' },
-				title: { type: 'string' },
-				brand: { type: 'string' },
-				price: { type: 'string' },
-				age: { type: 'number' },
-				services: { type: 'object' },
-				__v: { type: 'number' },
-			},
-		},
-	},
+	response: worldSuccessResponse
 };
 
-export const PutCarSchema = {
-	description: 'Updates existing car',
-	tags: ['cars'],
-	summary: 'Updates car by Id with given values',
+export const PutWorldSchema = {
+	description: 'Updates existing world',
+	tags: ['worlds'],
+	summary: 'Updates world by Id with given values',
 	params: {
 		type: 'object',
 		properties: {
 			id: {
 				type: 'string',
-				description: 'Car Id'
+				description: 'world Id'
 			}
 		}
 	},
@@ -69,16 +79,16 @@ export const PutCarSchema = {
 	},
 };
 
-export const GetCarSchema = {
-	description: 'Gets a single car',
-	tags: ['cars'],
-	summary: 'Gets car by Id',
+export const GetWorldSchema = {
+	description: 'Gets a single world',
+	tags: ['worlds'],
+	summary: 'Gets world by Id',
 	params: {
 		type: 'object',
 		properties: {
 			id: {
 				type: 'string',
-				description: 'Car Id'
+				description: 'world Id'
 			}
 		}
 	},
@@ -99,10 +109,10 @@ export const GetCarSchema = {
 	},
 };
 
-export const GetCarsSchema = {
-	description: 'Gets all cars',
-	tags: ['cars'],
-	summary: 'Gets all cars',
+export const GetWorldsSchema = {
+	description: 'Gets all worlds',
+	tags: ['worlds'],
+	summary: 'Gets all worlds',
 	response: {
 		200: {
 			description: 'Successful response',
@@ -123,16 +133,16 @@ export const GetCarsSchema = {
 	},
 };
 
-export const DeleteCarSchema = {
-	description: 'Deletes a single car',
-	tags: ['cars'],
-	summary: 'Deletes car by Id',
+export const DeleteWorldSchema = {
+	description: 'Deletes a single world',
+	tags: ['worlds'],
+	summary: 'Deletes world by Id',
 	params: {
 		type: 'object',
 		properties: {
 			id: {
 				type: 'string',
-				description: 'Car Id',
+				description: 'world Id',
 			},
 		},
 	},

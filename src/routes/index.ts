@@ -1,38 +1,38 @@
-import * as carsController from '../controllers/carsController';
+import * as worldController from '../controllers/worldController';
 import { RouteOptions } from 'fastify';
-import { AddCarSchema, GetCarSchema, GetCarsSchema, PutCarSchema, DeleteCarSchema } from './documentation/carsApi';
+import { AddWorldSchema, GetWorldSchema, GetWorldsSchema, PutWorldSchema, DeleteWorldSchema } from './documentation/worldsApi';
 
-const getCarsRoute: RouteOptions = {
+const getWorldsRoute: RouteOptions = {
 	method: 'GET',
-	url: '/api/cars',
-	handler: carsController.getCars,
-	schema: GetCarsSchema,
+	url: '/api/world',
+	handler: worldController.getWorlds,
+	schema: GetWorldsSchema,
 };
-const getCarRoute: RouteOptions = {
+const getWorldRoute: RouteOptions = {
 	method: 'GET',
-	url: '/api/cars/:id',
-	handler: carsController.getSingleCar,
-	schema: GetCarSchema,
+	url: '/api/world/:id',
+	handler: worldController.getSingleWorld,
+	schema: GetWorldSchema,
 };
-const postCarRoute: RouteOptions = {
+const postWorldRoute: RouteOptions = {
 	method: 'POST',
-	url: '/api/cars',
-	handler: carsController.addCar,
-	schema: AddCarSchema,
+	url: '/api/world',
+	handler: worldController.addWorld,
+	schema: AddWorldSchema,
 };
-const putCarRoute: RouteOptions = {
+const putWorldRoute: RouteOptions = {
 	method: 'PUT',
-	url: '/api/cars/:id',
-	handler: carsController.updateCar,
-	schema: PutCarSchema,
+	url: '/api/world/:id',
+	handler: worldController.updateWorld,
+	schema: PutWorldSchema,
 };
-const deleteCarRoute: RouteOptions = {
+const deleteWorldRoute: RouteOptions = {
 	method: 'DELETE',
-	url: '/api/cars/:id',
-	handler: carsController.deleteCar,
-	schema: DeleteCarSchema,
+	url: '/api/world/:id',
+	handler: worldController.deleteWorld,
+	schema: DeleteWorldSchema,
 };
 
-const routes = [getCarsRoute, getCarRoute, postCarRoute, putCarRoute, deleteCarRoute];
+const routes = [getWorldsRoute, getWorldRoute, postWorldRoute, putWorldRoute, deleteWorldRoute];
 
 export default routes;

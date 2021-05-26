@@ -11,6 +11,7 @@ import {
   UsersIcon,
   XIcon,
 } from '@heroicons/react/outline'
+import { userInfo } from 'os'
 
 const navigation = [
     { name: 'Worlds', href: '#', icon: GlobeIcon, current: true },
@@ -26,6 +27,9 @@ interface ISidebarProps {
 }
 
 export default function Sidebar({ children }: ISidebarProps) {
+    const user = {
+        name:"Jamie Legg"
+    }
     const [left, setLeft] = useState(true)
     const [open, setOpen] = useState(false)
     return(
@@ -82,8 +86,8 @@ export default function Sidebar({ children }: ISidebarProps) {
                   <div className="flex-shrink-0 flex items-center px-4">
                     <img
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                      alt="Workflow"
+                      src="https://i.imgur.com/bvRlxop.png"
+                      alt="Project Y"
                     />
                   </div>
                   <nav className="mt-5 px-2 space-y-1">
@@ -119,7 +123,7 @@ export default function Sidebar({ children }: ISidebarProps) {
                         />
                       </div>
                       <div className="ml-3">
-                        <p className="text-base font-medium text-white">Tom Cook</p>
+                        <p className="text-base font-medium text-white">{user.name}</p>
                         <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">View profile</p>
                       </div>
                     </div>
@@ -140,10 +144,13 @@ export default function Sidebar({ children }: ISidebarProps) {
                 <div className="flex items-center flex-shrink-0 px-4">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                    alt="Workflow"
+                    src="https://i.imgur.com/bvRlxop.png"
+                    alt="Project Y"
                   />
                 </div>
+                <span className="px-6 pt-4 text-gray-500">Your project needs a why.</span>
+                {user? <span className="px-6 text-gray-600">Welcome back Jamie.</span> : ""}
+                <span className="px-6 text-gray-700">v0.0.0.1 pre-alpha</span>
                 <nav className="mt-5 flex-1 px-2 bg-gray-800 space-y-1">
                   {navigation.map((item) => (
                     <a
@@ -177,7 +184,7 @@ export default function Sidebar({ children }: ISidebarProps) {
                       />
                     </div>
                     <div className="ml-3">
-                      <p className="text-sm font-medium text-white">Tom Cook</p>
+                      <p className="text-sm font-medium text-white">{user.name}</p>
                       <p className="text-xs font-medium text-gray-300 group-hover:text-gray-200">View profile</p>
                     </div>
                   </div>
@@ -187,15 +194,6 @@ export default function Sidebar({ children }: ISidebarProps) {
           </div>
         </div>
         <div className="flex flex-col w-0 flex-1 overflow-hidden">
-          <div className="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
-            <button
-              className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-              onClick={() => setOpen(true)}
-            >
-              <span className="sr-only">Open sidebar</span>
-              <MenuIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
           <nav className="bg-white border-b border-gray-200 flex" aria-label="Breadcrumb">
       <ol className="max-w-screen-xl w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8">
         <li className="flex">
@@ -230,6 +228,15 @@ export default function Sidebar({ children }: ISidebarProps) {
           </li>
         ))}
       </ol>
+      <div className="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
+            <button
+              className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              onClick={() => setOpen(true)}
+            >
+              <span className="sr-only">Open sidebar</span>
+              <MenuIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
     </nav>
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
               {children}

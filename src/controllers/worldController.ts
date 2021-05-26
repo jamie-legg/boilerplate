@@ -49,7 +49,9 @@ export const updateWorld: RouteHandlerMethod = async (req: FastifyRequest, res: 
 export const deleteWorld: RouteHandlerMethod = async (req: FastifyRequest, res: FastifyReply): Promise<any> => {
 	try {
 		const id = (req.params as GenericRequest).id;
-		const world = await World.findByIdAndRemove(id);
+		console.log(id)
+		const world = await World.deleteMany();
+		console.log(world);
 		return world;
 	} catch (err) {
 		throw boom.boomify(err);

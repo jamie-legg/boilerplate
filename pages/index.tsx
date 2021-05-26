@@ -51,8 +51,6 @@ export default function Home(props: IHomeProps) {
   }
   const [error, setError] = useState(props.worlds.error)
   return (
-    <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
       <div className="bg-white my-7 shadow sm:rounded-lg">
       <div className="px-4 py-5 sm:p-6">
@@ -81,8 +79,7 @@ export default function Home(props: IHomeProps) {
           </button>
         </form>
       </div>
-    </div>
-        <ul>
+      <ul>
           {worlds.map((world: IWorld, index) => (
             <li key={index}>
               <Link href="/b" as="/a">
@@ -91,7 +88,6 @@ export default function Home(props: IHomeProps) {
             </li>
           ))}
         </ul>
-      </div>
     </div>
           {/* Global notification live region, render this permanently at the end of the document */}
           <div
@@ -137,7 +133,7 @@ export default function Home(props: IHomeProps) {
           </Transition>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

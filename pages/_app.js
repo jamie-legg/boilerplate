@@ -1,8 +1,15 @@
 import '../styles/globals.css'
+import Layout from '../src/components/layout/Layout'
+import Sidebar from '../src/components/sidebar/Sidebar'
 
 function MyApp({ Component, pageProps }) {
   return (
-  <Component {...pageProps} />
+    <Layout>
+      <Sidebar>
+        <Component {...pageProps} />
+      </Sidebar>
+    </Layout>
+
   )
 }
 

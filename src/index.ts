@@ -14,7 +14,7 @@ app.register(nextAdapter)
   .after(() => {
 	app.next('/')
   })
-
+ 
 app.register(swagger, Options);
 
 routes.forEach(route => {

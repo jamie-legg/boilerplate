@@ -1,7 +1,7 @@
 {
-    "name": "node-api-starter",
-    "version": "1.0.0",
-    "description": "Node.js Restful API starter project",
+    "name": "boilerplate",
+    "version": "0.0.1",
+    "description": "Node.js Restful API fullstack boilerplate with Next, Tailwind, Fastify, Typescript.",
     "main": "index.js",
     "scripts": {
         "next": "next build",
@@ -12,18 +12,22 @@
     "keywords": [
         "node",
         "typescript",
+        "tailwind",
+        "next",
+        "react",
         "mongo",
         "mongoose",
         "fastify",
         "swagger"
     ],
-    "author": "Georgi Marokov <georgi.marokov@gmail.com> (www.worldwildweb.dev)",
+    "author": "Jamie Legg (Project Y)",
     "license": "ISC",
     "devDependencies": {
         "@headlessui/react": "^1.1.1",
         "@heroicons/react": "^1.0.1",
         "@types/node": "^13.13.51",
         "@types/react": "^17.0.6",
+        "@types/uuid": "^8.3.0",
         "autoprefixer": "^10.2.5",
         "axios": "^0.21.1",
         "coveralls": "^3.1.0",
@@ -39,7 +43,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/gmarokov/node-fastify-mongo-api.git"
+        "url": "git://github.com/jamie-legg/boilerplate.git"
     },
     "dependencies": {
         "@sinclair/typebox": "^0.16.7",
@@ -52,6 +56,7 @@
         "mongoose": "^5.12.7",
         "next": "^10.2.2",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "uuid": "^8.3.2"
     }
 }

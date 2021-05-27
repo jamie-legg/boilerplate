@@ -13,6 +13,7 @@ const app = fastify({ logger: true });
 app.register(nextAdapter)
   .after(() => {
 	app.next('/')
+	app.next('/login')
   })
  
 app.register(swagger, Options);

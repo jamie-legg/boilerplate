@@ -73,8 +73,8 @@ export default function WorldCreateForm({ createWorld }: IWorldCreateFormProps) 
                             <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-1/2 left-1/2 sm:px-0 lg:max-w-3xl">
                                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                     <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
-                                        {options.map((item) => (
-                                            <div className="ml-4">
+                                        {options.map((item,index) => (
+                                            <div key = {index} className="ml-4">
                                                 <p className="text-sm font-medium text-gray-900">
                                                     {item.name}
                                                 </p>

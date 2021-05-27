@@ -24,12 +24,21 @@ function classNames(...classes: string[]) {
 
 interface ISidebarProps {
     children: React.ReactNode
+    image?: string,
+    tagline?: string,
+    challenge?: boolean
+    turingArray?: string[],
+    version?:string
 }
 
 export default function Sidebar({ children }: ISidebarProps) {
     const user = {
-        name:"Jamie Legg"
+        name:"Anonymous User",
+        avatarUrl: "https://i.imgur.com/f8bw4XN.png",
+        anon: true
     }
+
+
     const [left, setLeft] = useState(true)
     const [open, setOpen] = useState(false)
     return(
@@ -118,13 +127,21 @@ export default function Sidebar({ children }: ISidebarProps) {
                       <div>
                         <img
                           className="inline-block h-10 w-10 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          src={user.avatarUrl}
                           alt=""
                         />
                       </div>
                       <div className="ml-3">
                         <p className="text-base font-medium text-white">{user.name}</p>
-                        <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">View profile</p>
+                        {user.anon ? 
+                        <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">
+                          <a href={`/login`}>Login </a>
+                            or
+                            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">CREATE A WORLD</span>
+                          </p>  
+                          : 
+                          <a className="text-sm font-medium text-gray-400 group-hover:text-gray-300">View profile</a>
+                          }                        
                       </div>
                     </div>
                   </a>
@@ -179,13 +196,21 @@ export default function Sidebar({ children }: ISidebarProps) {
                     <div>
                       <img
                         className="inline-block h-9 w-9 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src={user.avatarUrl}
                         alt=""
                       />
                     </div>
                     <div className="ml-3">
                       <p className="text-sm font-medium text-white">{user.name}</p>
-                      <p className="text-xs font-medium text-gray-300 group-hover:text-gray-200">View profile</p>
+                      {user.anon ? 
+                        <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">
+                          <a href={`/login`}>Login </a>
+                            or
+                            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">CREATE A WORLD</span>
+                          </p>  
+                          : 
+                          <a className="text-sm font-medium text-gray-400 group-hover:text-gray-300">View profile</a>
+                          }  
                     </div>
                   </div>
                 </a>

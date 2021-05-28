@@ -42,7 +42,7 @@ export default function Sidebar({ children }: ISidebarProps) {
     const [left, setLeft] = useState(true)
     const [open, setOpen] = useState(false)
     return(
-        <div className="h-screen flex overflow-hidden bg-gray-100">
+        <div className="h-screen flex overflow-hidden">
         <Transition.Root show={open} as={Fragment}>
           <Dialog
             as="div"
@@ -122,7 +122,7 @@ export default function Sidebar({ children }: ISidebarProps) {
                   </nav>
                 </div>
                 <div className="flex-shrink-0 flex bg-gray-700 p-4">
-                  <a href="#" className="flex-shrink-0 group block">
+                  <a href="/" className="flex-shrink-0 group block">
                     <div className="flex items-center">
                       <div>
                         <img
@@ -191,7 +191,7 @@ export default function Sidebar({ children }: ISidebarProps) {
                 </nav>
               </div>
               <div className="flex-shrink-0 flex bg-gray-700 p-4">
-                <a href="#" className="flex-shrink-0 w-full group block">
+                <a href="/" className="flex-shrink-0 w-full group block">
                   <div className="flex items-center">
                     <div>
                       <img

@@ -6,6 +6,7 @@ import { config } from './config';
 import swagger from 'fastify-swagger';
 import nextAdapter from 'fastify-nextjs'
 const env = process.env.NODE_ENV;
+import users from './routes/users';
 
 // Configure App
 const app = fastify({ logger: true });
@@ -14,6 +15,7 @@ app.register(nextAdapter)
   .after(() => {
 	app.next('/')
 	app.next('/login')
+	app.next('/profile')
   })
  
 app.register(swagger, Options);
@@ -21,6 +23,8 @@ app.register(swagger, Options);
 routes.forEach(route => {
 	app.route(route);
 });
+
+app.register(users);
 
 const start = async (): Promise<void> => {
 	try {

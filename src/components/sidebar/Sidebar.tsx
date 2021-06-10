@@ -9,13 +9,15 @@ import {
   InboxIcon,
   MenuIcon,
   UsersIcon,
+  DesktopComputerIcon,
   XIcon,
 } from '@heroicons/react/outline'
 import { userInfo } from 'os'
 
 const navigation = [
-    { name: 'Worlds', href: '#', icon: GlobeIcon, current: true },
-    { name: 'Users', href: '/users', icon: UsersIcon, current: false}
+    { name: 'Worlds', href: '/worlds', icon: GlobeIcon, current: true },
+    { name: 'Profile', href: '/profile', icon: UsersIcon, current: false},
+    { name: 'Login', href: '/login', icon: DesktopComputerIcon}
   ]
 
 function classNames(...classes: string[]) {
@@ -137,7 +139,7 @@ export default function Sidebar({ children }: ISidebarProps) {
                         <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">
                           <a href={`/login`}>Login </a>
                             or
-                            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">CREATE A WORLD</span>
+                            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">NEW WORLD</span>
                           </p>  
                           : 
                           <a className="text-sm font-medium text-gray-400 group-hover:text-gray-300">View profile</a>
@@ -206,7 +208,7 @@ export default function Sidebar({ children }: ISidebarProps) {
                         <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">
                           <a href={`/login`}>Login </a>
                             or
-                            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">CREATE A WORLD</span>
+                            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">NEW WORLD</span>
                           </p>  
                           : 
                           <a className="text-sm font-medium text-gray-400 group-hover:text-gray-300">View profile</a>

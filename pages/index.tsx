@@ -8,17 +8,9 @@ import { CheckCircleIcon } from '@heroicons/react/outline'
 import { XIcon } from '@heroicons/react/solid'
 import WorldTable from '../src/components/table/WorldTable'
 import WorldCreateForm from '../src/components/form/WorldCreateForm';
+import { fetchWorlds } from '../src/lib/api';
 
-const fetchWorlds = async () => axios.get('http://localhost:3000/api/world')
-  .then(res => ({
-    error: false,
-    worlds: res.data,
-  }))
-  .catch(() => ({
-    error: true,
-    worlds: null,
-  }),
-  );
+
 
 const deleteWorld = async (id: string) => axios.post(`http://localhost:3000/api/world/delete/${id}`)
   .then(res => ({

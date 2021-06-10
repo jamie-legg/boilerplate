@@ -1,5 +1,10 @@
+import Layout from "../src/components/layout/Layout";
+import Sidebar from "../src/components/sidebar/Sidebar";
+
 export default function Login() {
     return (
+      <Layout>
+        <Sidebar visible={true}>
       <div className="min-h-screen flex flex-col justify-center py-10 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
@@ -131,5 +136,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      </Sidebar>
+      </Layout>
     )
   }

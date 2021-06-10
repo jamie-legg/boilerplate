@@ -16,8 +16,7 @@
         "next",
         "react",
         "mongo",
-        "mongoose",
-        "fastify",
+        "mongoose",        "fastify",
         "swagger"
     ],
     "author": "Jamie Legg (Project Y)",
@@ -33,10 +32,12 @@
         "coveralls": "^3.1.0",
         "cross-env": "^7.0.3",
         "fastify-nextjs": "^5.4.1",
+        "framer-motion": "^4.1.17",
         "nodemon": "^2.0.7",
         "postcss": "^8.3.0",
         "react-use": "^17.2.4",
         "rimraf": "^3.0.2",
+        "tailwind-glassmorphism": "^1.0.6",
         "tailwindcss": "^2.1.2",
         "ts-node": "^8.10.2",
         "typescript": "^4.2.4"

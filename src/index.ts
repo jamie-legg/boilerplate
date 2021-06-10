@@ -12,10 +12,26 @@ const app = fastify({ logger: true });
 
 app.register(nextAdapter)
   .after(() => {
-	app.next('/')
-	app.next('/login')
+
+	  //? Don't ask why this works. I don't know.
+	  //? If it doesn't work, try commenting out the entirety of _app.js and then building.
+	  //? Once built, uncomment the file and let the hot reload build it.
+	  //? If you can fix this, please let me know.
+
+	  if(app.next) {
+		app.next('/')
+		app.next('/worlds')
+		app.next('/login')
+	  }
+	  else {
+		  console.log("Something went wrong.");
+		  
+	  }
   })
  
+
+//? API Documentation is available at /api/docs
+
 app.register(swagger, Options);
 
 routes.forEach(route => {
@@ -35,7 +51,8 @@ start();
 
 export default app;
 
-// Configure DB
+//TODO: Something with a test environment
+
 if (env !== 'test') {
 	mongoose
 		.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {
